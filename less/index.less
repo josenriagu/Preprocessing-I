@@ -260,6 +260,28 @@ p {
 .work {
 	margin-top: @sectiongap;
 }
+
+.bottom {
+	margin-top: @sectiongap;
+	display: flex;
+	flex-direction: column;
+	// justify-content: space-between;
+	
+	.skills{
+		width:50%;
+	}
+	.interest {
+		width: 50%;
+		text-align: left;
+	}
+	li {
+		font-size: 2.5rem;
+		margin-left: 3rem;
+		padding: .6rem 0;
+		list-style-type: disc;
+	}
+
+}
 table {
 	font-size: 2.5rem;
 	width: 100%;
@@ -270,8 +292,17 @@ table {
 		text-align: left;
 		padding: .8rem;
 	}
+
 	tr:nth-child(even) {
 		background-color: @primaryColorAccent;
 	}
 
+	th {
+		font-weight: 700;
+	}
+
+}
+
+footer {
+	margin-top: @sectiongap;
 }

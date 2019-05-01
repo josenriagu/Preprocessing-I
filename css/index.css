@@ -219,6 +219,24 @@ p {
 .work {
   margin-top: 2rem;
 }
+.bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.bottom .skills {
+  width: 50%;
+}
+.bottom .interest {
+  width: 50%;
+  text-align: left;
+}
+.bottom li {
+  font-size: 2.5rem;
+  margin-left: 3rem;
+  padding: 0.6rem 0;
+  list-style-type: disc;
+}
 table {
   font-size: 2.5rem;
   width: 100%;
@@ -233,4 +251,10 @@ table tr {
 }
 table tr:nth-child(even) {
   background-color: #F2F2F2;
+}
+table th {
+  font-weight: 700;
+}
+footer {
+  margin-top: 2rem;
 }
