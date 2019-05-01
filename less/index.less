@@ -143,6 +143,7 @@ table {
 html,
 body {
 	height: 100%;
+	font-family: 'Titillium Web', sans-serif;
 }
 
 // start coding
@@ -309,6 +310,11 @@ main {
 				border          : .1rem solid @black;
 				cursor          : pointer;
 			}
+		}
+
+		@media(max-width: @mobilescreen) {
+			display: flex;
+			flex-direction: column;
 		}
 	}
 
