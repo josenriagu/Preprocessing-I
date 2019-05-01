@@ -156,11 +156,14 @@ body {
 @primaryColor      : #E9ECEF;
 @primaryColorAccent: #F2F2F2;
 @secondaryColor    : #808080;
+@thinlineColor: #c6930a;
 @black             : black;
 @white             : white;
 
 @tabletscreen: 800px;
 @mobilescreen: 500px;
+
+@sectiongap: 2rem;
 
 .container {
 	margin: 0 20rem;
@@ -250,6 +253,25 @@ p {
 				cursor: pointer; 
 			}
 		}
+	}
+
+}
+
+.work {
+	margin-top: @sectiongap;
+}
+table {
+	font-size: 2.5rem;
+	width: 100%;
+	margin-top: @sectiongap;
+
+	td, th, tr {
+		border-top: .1rem solid @thinlineColor;
+		text-align: left;
+		padding: .8rem;
+	}
+	tr:nth-child(even) {
+		background-color: @primaryColorAccent;
 	}
 
 }
