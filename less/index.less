@@ -142,17 +142,19 @@ table {
 
 html,
 body {
-	height: 100%;
+	height     : 100%;
 	font-family: 'Titillium Web', sans-serif;
 }
 
 // start coding
-// set root element font size
+
+// set root element font-size
 
 :root {
 	font-size: 62.5%;
 }
 
+// LESS variables
 // define color schemes
 @primaryColor      : #E9ECEF;
 @primaryColorAccent: #F2F2F2;
@@ -161,15 +163,61 @@ body {
 @black             : black;
 @white             : white;
 
-// define screen sizes
+// define responsive screen sizes
 
 @tabletscreen: 800px;
 @mobilescreen: 500px;
 
-// define section margins
+// define default section margins
 
-@sectiongap   : 2rem;
 @bigsectiongap: 4rem;
+@sectiongap   : 2rem;
+
+// define mixins for paragraphs and links
+
+.p-styles() {
+	font-size  : 2.0rem;
+	line-height: 2.5rem;
+
+	@media (max-width: @tabletscreen) {
+		font-size: 1.8rem;
+	}
+
+	@media(max-width: @mobilescreen) {
+		font-size: 1.5rem;
+	}
+}
+
+.a-styles() {
+	color          : @black;
+	text-decoration: none;
+	.p-styles();
+}
+
+// define mixins for flexbox direction
+
+.flexboxthings(@flexdirection) {
+	display        : flex;
+	flex-direction : @flexdirection;
+}
+
+// reusable elements - button
+
+button {
+	font-weight     : 600;
+	margin-top      : 1.5rem;
+	padding         : 1rem;
+	font-size       : 1.5rem;
+	background-color: @secondaryColor;
+	border-radius   : .4rem;
+	border          : .1rem solid @black;
+	cursor          : pointer;
+
+	&:hover {
+		background-color: transparent;
+		color: @thinlineColor;
+	}
+}
 
 // set container width and media queries
 
@@ -177,7 +225,7 @@ body {
 	margin: 0 20rem;
 
 	@media (max-width: @tabletscreen) {
-		margin: 5rem;
+		margin: 0 5rem;
 	}
 
 	@media(max-width: @mobilescreen) {
@@ -216,7 +264,7 @@ h2 {
 }
 
 h3 {
-	font-size: 2.8rem;
+	font-size  : 2.8rem;
 	line-height: 3.5rem;
 
 	@media (max-width: @tabletscreen) {
@@ -228,32 +276,13 @@ h3 {
 	}
 }
 
+
 p {
-	font-size  : 2.0rem;
-	line-height: 2.5rem;
-
-	@media (max-width: @tabletscreen) {
-		font-size: 1.8rem;
-	}
-
-	@media(max-width: @mobilescreen) {
-		font-size: 1.5rem;
-	}
-}
-
-// define link styling mixins
-.a-styles() {
-	font-size      : 2rem;
-	color          : @black;
-	text-decoration: none;
-
-	@media (max-width: @mobilescreen) {
-		font-size: 1.5rem;
-	}
+	.p-styles();
 }
 
 .header {
-	display        : flex;
+	.flexboxthings(row);
 	justify-content: flex-end;
 	margin         : 1.8rem 1.5rem;
 
@@ -265,115 +294,100 @@ p {
 
 main {
 	margin: 0 1.5rem;
-}
 
-.basic {
-	display         : flex;
-	flex-direction  : column;
-	background-color: @primaryColor;
-	padding         : 4rem 3rem;
-	border-radius   : .5rem;
+	.basic {
+		.flexboxthings(column);
+		background-color: @primaryColor;
+		padding         : 4rem 3rem;
+		border-radius   : .5rem;
 
-	& .name {
-		display       : flex;
-		flex-direction: column;
-		align-items   : center;
-		margin-bottom : 2rem;
-		padding       : 1rem 0;
-	}
-
-	.shortbio {
-		display       : flex;
-		flex-direction: row;
-		align-items   : center;
-
-		.image {
-			flex: 1;
-
-			img {
-				width: 80%;
-			}
-		}
-
-		.shortbio-text {
-			display       : flex;
-			flex-direction: column;
-			flex          : 1;
+		& .name {
+			.flexboxthings(column);
 			align-items   : center;
-			padding       : 0 1rem;
+			margin-bottom : 2rem;
+			padding       : 1rem 0;
+		}
 
-			button {
-				font-weight: 600;
-				margin-top      : 1.5rem;
-				padding         : 1rem;
-				font-size       : 1.5rem;
-				background-color: @secondaryColor;
-				border-radius   : .4rem;
-				border          : .1rem solid @black;
-				cursor          : pointer;
+		.shortbio {
+			.flexboxthings(row);
+			flex-basis    : 50%;
+
+			.image {
+				flex: 1;
+
+				img {
+					width: 80%;
+				}
+			}
+
+			.shortbio-text {
+				.flexboxthings(column);
+				flex          : 1;
+				align-items   : center;
+				padding       : 0 1rem;
+			}
+
+			@media(max-width: @mobilescreen) {
+				display       : flex;
+				flex-direction: column;
 			}
 		}
 
-		@media(max-width: @mobilescreen) {
-			display: flex;
-			flex-direction: column;
-		}
 	}
 
-}
-
-.work {
-	margin-top: @sectiongap;
-}
-
-.bottom {
-	margin-top        : @sectiongap;
-	display           : flex;
-	flex-direction    : column;
-	// justify-content: space-between;
-
-	.skills {
-		width: 50%;
-	}
-
-	.interest {
-		width     : 50%;
-		text-align: left;
+	.work {
 		margin-top: @sectiongap;
 	}
 
-	li {
-		font-size      : 2.5rem;
-		margin-left    : 3rem;
-		padding        : .6rem 0;
-		list-style-type: disc;
+	.bottom {
+		margin-top    : @sectiongap;
+		display       : flex;
+		flex-direction: column;
+
+		.skills {
+			width: 50%;
+		}
+
+		.interest {
+			width     : 50%;
+			text-align: left;
+			margin-top: @sectiongap;
+		}
+
+		li {
+			.p-styles();
+			margin-left    : 3rem;
+			padding        : .6rem 0;
+			list-style-type: disc;
+		}
+
 	}
 
+	table {
+		margin: inherit;
+		.p-styles();
+		width     : 100%;
+		margin-top: @sectiongap;
+
+		td,
+		th,
+		tr {
+			border-bottom: .1rem solid @thinlineColor;
+			text-align   : left;
+			padding      : .8rem;
+		}
+
+		tr:nth-child(even) {
+			background-color: @primaryColorAccent;
+		}
+
+		th {
+			font-weight: 700;
+		}
+
+	}
 }
 
-table {
-	margin    : inherit;
-	font-size : 2.5rem;
-	width     : 100%;
-	margin-top: @sectiongap;
-
-	td,
-	th,
-	tr {
-		border-bottom: .1rem solid @thinlineColor;
-		text-align   : left;
-		padding      : .8rem;
-	}
-
-	tr:nth-child(even) {
-		background-color: @primaryColorAccent;
-	}
-
-	th {
-		font-weight: 700;
-	}
-
-}
 
 footer {
 	margin-top      : @sectiongap;
@@ -386,7 +400,7 @@ footer {
 
 	a {
 		.a-styles();
-		align-content  : center;
+		align-content: center;
 
 		&:hover {
 			color: @thinlineColor;
