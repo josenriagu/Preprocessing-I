@@ -1,1 +1,423 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Titillium Web', sans-serif;
+}
+:root {
+  font-size: 62.5%;
+}
+button {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #808080;
+  border-radius: 0.4rem;
+  border: 0.1rem solid black;
+  cursor: pointer;
+}
+button:hover {
+  background-color: transparent;
+  color: #c6930a;
+}
+.container {
+  margin: 0 20rem;
+}
+@media (max-width: 1200px) {
+  .container {
+    margin: 0 9rem;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    margin: 0 5rem;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    margin: 0 1rem;
+  }
+}
+h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+h2 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+@media (max-width: 800px) {
+  h2 {
+    font-size: 3.4rem;
+  }
+}
+@media (max-width: 500px) {
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+h3 {
+  font-size: 2.8rem;
+  line-height: 3.5rem;
+}
+@media (max-width: 800px) {
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 500px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+p {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+@media (max-width: 800px) {
+  p {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  p {
+    font-size: 1.5rem;
+  }
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 1.8rem 1.5rem;
+}
+.header a {
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  padding-left: 3rem;
+}
+@media (max-width: 800px) {
+  .header a {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  .header a {
+    font-size: 1.5rem;
+  }
+}
+.header a:hover {
+  color: #c6930a;
+  font-weight: 600;
+}
+main {
+  margin: 0 1.5rem;
+}
+main .basic {
+  display: flex;
+  flex-direction: column;
+  background-color: #E9ECEF;
+  padding: 4rem 3rem;
+  border-radius: 0.5rem;
+}
+main .basic .name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+main .basic .shortbio {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+}
+main .basic .shortbio .image {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  object-fit: cover;
+}
+main .basic .shortbio .image img {
+  width: 100%;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  object-fit: cover;
+}
+@media (max-width: 800px) {
+  main .basic .shortbio .image img {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  main .basic .shortbio .image img {
+    width: 80%;
+  }
+}
+@media (max-width: 800px) {
+  main .basic .shortbio .image {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 500px) {
+  main .basic .shortbio .image {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+main .basic .shortbio .shortbio-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: 1.5rem;
+}
+@media (max-width: 800px) {
+  main .basic .shortbio {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  main .basic .shortbio {
+    display: flex;
+    flex-direction: column;
+  }
+}
+main .work {
+  margin-top: 2rem;
+}
+main .bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+main .bottom .skills {
+  width: 50%;
+}
+main .bottom .interests {
+  width: 50%;
+  text-align: left;
+  margin-top: 2rem;
+}
+main .bottom li {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin-left: 3rem;
+  padding: 0.6rem 0;
+  list-style-type: disc;
+}
+@media (max-width: 800px) {
+  main .bottom li {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  main .bottom li {
+    font-size: 1.5rem;
+  }
+}
+main table {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+@media (max-width: 800px) {
+  main table {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  main table {
+    font-size: 1.5rem;
+  }
+}
+main table td,
+main table th,
+main table tr {
+  border-bottom: 0.1rem solid #c6930a;
+  text-align: left;
+  padding: 0.8rem;
+}
+main table tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+main table th {
+  font-weight: 700;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 2rem 0 4rem 0;
+  background-color: #808080;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  align-items: center;
+}
+footer a {
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+@media (max-width: 800px) {
+  footer a {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  footer a {
+    font-size: 1.5rem;
+  }
+}
+footer a:hover {
+  color: #c6930a;
+  font-weight: 600;
+}
