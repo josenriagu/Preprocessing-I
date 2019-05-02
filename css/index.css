@@ -155,6 +155,11 @@ button:hover {
 .container {
   margin: 0 20rem;
 }
+@media (max-width: 1200px) {
+  .container {
+    margin: 0 9rem;
+  }
+}
 @media (max-width: 800px) {
   .container {
     margin: 0 5rem;

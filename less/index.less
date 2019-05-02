@@ -164,9 +164,9 @@ body {
 @white             : white;
 
 // define responsive screen sizes
-
-@tabletscreen: 800px;
-@mobilescreen: 500px;
+@tablandscapescreen: 1200px;
+@tabletscreen      : 800px;
+@mobilescreen      : 500px;
 
 // define default section margins
 
@@ -236,6 +236,10 @@ button {
 
 .container {
 	margin: 0 20rem;
+
+	@media (max-width: @tablandscapescreen) {
+		margin: 0 9rem;
+	}
 
 	@media (max-width: @tabletscreen) {
 		margin: 0 5rem;
