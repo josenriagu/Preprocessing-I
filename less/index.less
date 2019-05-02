@@ -170,8 +170,9 @@ body {
 
 // define default section margins
 
-@bigsectiongap: 4rem;
-@sectiongap   : 2rem;
+@bigsectiongap  : 4rem;
+@sectiongap     : 2rem;
+@smallsectiongap: 1rem;
 
 // define mixins for paragraphs and links
 
@@ -192,13 +193,25 @@ body {
 	color          : @black;
 	text-decoration: none;
 	.p-styles();
+
+	&:hover {
+		color      : @thinlineColor;
+		font-weight: 600;
+	}
 }
 
 // define mixins for flexbox direction
 
 .flexboxthings(@flexdirection) {
-	display        : flex;
-	flex-direction : @flexdirection;
+	display       : flex;
+	flex-direction: @flexdirection;
+}
+
+// define mixins for justify and align
+
+.justalign() {
+	justify-content: center;
+	align-items    : flex-start;
 }
 
 // reusable elements - button
@@ -215,7 +228,7 @@ button {
 
 	&:hover {
 		background-color: transparent;
-		color: @thinlineColor;
+		color           : @thinlineColor;
 	}
 }
 
@@ -281,6 +294,8 @@ p {
 	.p-styles();
 }
 
+// set header styles
+
 .header {
 	.flexboxthings(row);
 	justify-content: flex-end;
@@ -291,6 +306,8 @@ p {
 		padding-left: 3rem;
 	}
 }
+
+// set main styles
 
 main {
 	margin: 0 1.5rem;
@@ -303,33 +320,56 @@ main {
 
 		& .name {
 			.flexboxthings(column);
-			align-items   : center;
-			margin-bottom : 2rem;
-			padding       : 1rem 0;
+			align-items  : center;
+			margin-bottom: 2rem;
+			padding      : 1rem 0;
 		}
 
 		.shortbio {
 			.flexboxthings(row);
-			flex-basis    : 50%;
+			flex-basis: 50%;
 
 			.image {
+				.flexboxthings(row);
 				flex: 1;
 
 				img {
-					width: 80%;
+					width                     : 100%;
+					border-top-left-radius    : 2rem;
+					border-bottom-right-radius: 2rem;
+
+					@media(max-width: @tabletscreen) {
+						width: 80%;
+					}
+
+					@media(max-width: @mobilescreen) {
+						width: 80%;
+					}
+
+				}
+
+				@media(max-width: @tabletscreen) {
+					.justalign();
+				}
+
+				@media(max-width: @mobilescreen) {
+					.justalign();
 				}
 			}
 
 			.shortbio-text {
 				.flexboxthings(column);
-				flex          : 1;
-				align-items   : center;
-				padding       : 0 1rem;
+				flex       : 1;
+				align-items: center;
+				padding    : 1.5rem;
+			}
+
+			@media(max-width: @tabletscreen) {
+				.flexboxthings(column);
 			}
 
 			@media(max-width: @mobilescreen) {
-				display       : flex;
-				flex-direction: column;
+				.flexboxthings(column);
 			}
 		}
 
@@ -340,15 +380,14 @@ main {
 	}
 
 	.bottom {
-		margin-top    : @sectiongap;
-		display       : flex;
-		flex-direction: column;
+		margin-top: @sectiongap;
+		.flexboxthings(column);
 
 		.skills {
 			width: 50%;
 		}
 
-		.interest {
+		.interests {
 			width     : 50%;
 			text-align: left;
 			margin-top: @sectiongap;
@@ -363,11 +402,12 @@ main {
 
 	}
 
+	// set table styles
+
 	table {
-		margin: inherit;
 		.p-styles();
 		width     : 100%;
-		margin-top: @sectiongap;
+		margin-top: @smallsectiongap;
 
 		td,
 		th,
@@ -388,22 +428,19 @@ main {
 	}
 }
 
+// set footer styles
 
 footer {
-	margin-top      : @sectiongap;
-	padding         : @sectiongap 0 @bigsectiongap 0;
-	background-color: @secondaryColor;
-	display         : flex;
-	flex-direction  : column;
-	align-items     : center;
+	.flexboxthings(column);
+	margin-top             : @sectiongap;
+	padding                : @sectiongap 0 @bigsectiongap 0;
+	background-color       : @secondaryColor;
+	border-top-left-radius : 2rem;
+	border-top-right-radius: 2rem;
+	align-items            : center;
 
 
 	a {
 		.a-styles();
-		align-content: center;
-
-		&:hover {
-			color: @thinlineColor;
-		}
 	}
 }

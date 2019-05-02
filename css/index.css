@@ -245,6 +245,10 @@ p {
     font-size: 1.5rem;
   }
 }
+.header a:hover {
+  color: #c6930a;
+  font-weight: 600;
+}
 main {
   margin: 0 1.5rem;
 }
@@ -268,17 +272,49 @@ main .basic .shortbio {
   flex-basis: 50%;
 }
 main .basic .shortbio .image {
+  display: flex;
+  flex-direction: row;
   flex: 1;
 }
 main .basic .shortbio .image img {
-  width: 80%;
+  width: 100%;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+@media (max-width: 800px) {
+  main .basic .shortbio .image img {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  main .basic .shortbio .image img {
+    width: 80%;
+  }
+}
+@media (max-width: 800px) {
+  main .basic .shortbio .image {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 500px) {
+  main .basic .shortbio .image {
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 main .basic .shortbio .shortbio-text {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-  padding: 0 1rem;
+  padding: 1.5rem;
+}
+@media (max-width: 800px) {
+  main .basic .shortbio {
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media (max-width: 500px) {
   main .basic .shortbio {
@@ -297,7 +333,7 @@ main .bottom {
 main .bottom .skills {
   width: 50%;
 }
-main .bottom .interest {
+main .bottom .interests {
   width: 50%;
   text-align: left;
   margin-top: 2rem;
@@ -320,11 +356,10 @@ main .bottom li {
   }
 }
 main table {
-  margin: inherit;
   font-size: 2rem;
   line-height: 2.5rem;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 @media (max-width: 800px) {
   main table {
@@ -350,11 +385,13 @@ main table th {
   font-weight: 700;
 }
 footer {
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
   padding: 2rem 0 4rem 0;
   background-color: #808080;
-  display: flex;
-  flex-direction: column;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   align-items: center;
 }
 footer a {
@@ -362,7 +399,6 @@ footer a {
   text-decoration: none;
   font-size: 2rem;
   line-height: 2.5rem;
-  align-content: center;
 }
 @media (max-width: 800px) {
   footer a {
@@ -376,4 +412,5 @@ footer a {
 }
 footer a:hover {
   color: #c6930a;
+  font-weight: 600;
 }
